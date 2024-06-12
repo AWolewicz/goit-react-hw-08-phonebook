@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../redux/operations';
-
+import Button from '@mui/material/Button';
 
 export const Contact = ({ contact }) => {
   const dispatch = useDispatch();
@@ -13,12 +13,9 @@ export const Contact = ({ contact }) => {
         <p>{contact.name}</p>
         <p>{contact.phone}</p>
       </div>
-      <button
-        type="button"
-        onClick={() => handleDelete()}
-      >
+      <Button variant="outlined" color="error" onClick={() => handleDelete()}      >
         Delete
-      </button>
+      </Button>
     </div>
   );
 };

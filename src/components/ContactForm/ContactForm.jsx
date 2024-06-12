@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addContact } from '../redux/operations';
 import { nanoid } from '@reduxjs/toolkit';
 import css from './ContactForm.module.css'
+import Button from '@mui/material/Button';
 
 export const ContactForm = () => {
   const nameInputId = nanoid();
@@ -17,13 +18,13 @@ export const ContactForm = () => {
 
     const form = evt.currentTarget;
     const name = form[0].value;
-    const phone = form[1].value;
+    const number = form[1].value;
     const nameExists = contacts.some(contact => contact.name === name);
 
     if (nameExists) {
       alert(name + ' is already in contacts.');
     } else {
-      dispatch(addContact({ name, phone }));
+      dispatch(addContact({ name, number }));
     }
 
     form.reset();
@@ -36,6 +37,7 @@ export const ContactForm = () => {
           Name
         </label>
         <input
+          className={css.input}
           type="text"
           name="name"
           id={nameInputId}
@@ -49,6 +51,7 @@ export const ContactForm = () => {
           Number
         </label>
         <input
+          className={css.input}
           type="tel"
           name="number"
           id={numberInputId}
@@ -57,9 +60,9 @@ export const ContactForm = () => {
           required
         />
       </div>
-      <button type="submit">
+      <Button variant="contained" type="submit">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };

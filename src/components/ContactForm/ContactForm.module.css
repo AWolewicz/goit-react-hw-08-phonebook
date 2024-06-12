@@ -6,3 +6,8 @@
     padding-left: 30px;
     padding-right: 15px;
 }
+
+.input {
+    border: 1px blue solid;
+    border-radius: 5px;
+}
